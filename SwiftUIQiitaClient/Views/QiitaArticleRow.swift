@@ -25,7 +25,7 @@ struct QiitaArticleRow : View {
                         .aspectRatio(contentMode: .fill)
                         .clipped()
                     })
-                    .frame(width: 70.0, height: 70.0)
+                    .frame(width: 60.0, height: 60.0)
             }
             VStack() {
                     
@@ -46,10 +46,10 @@ struct QiitaArticleRow : View {
                         .foregroundColor(.yellow)
                         .fontWeight(Font.Weight.light)
                     
-                    Text("by @\(article.user.id)")
-                        .font(.caption)
-                        .foregroundColor(.yellow)
-                        .fontWeight(Font.Weight.light)
+                    //Text("@\(article.user.id)")
+                    //    .font(.caption)
+                    //    .foregroundColor(.yellow)
+                    //    .fontWeight(Font.Weight.light)
                     
                     Spacer()
                 }
