@@ -20,13 +20,21 @@ struct QiitaArticleList : View {
                 }
             }
             .navigationBarTitle(Text("\"Swift\"の新着記事一覧"))
-            .navigationBarItems(trailing: Button(action: {
+            .navigationBarItems(leading: Button(action: {
+                // クリックした時のアクション
+                self.viewModel.prev()
+            }){
+                // ボタンの文字
+                Text("Prev")
+            },
+            trailing: Button(action: {
                 // クリックした時のアクション
                 self.viewModel.next()
             }){
                 // ボタンの文字
                 Text("Next")
             })
+            
         }
     }
 }

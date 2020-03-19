@@ -53,4 +53,27 @@ final class QiitaArticleListViewModel: ObservableObject, Identifiable {
                 self.articles = articles
             }.store(in: &cancellables)
     }
+    
+    func prev(){
+        if(currentPage >= 2)
+        {
+            currentPage = currentPage - 1
+            
+            QiitaAPIClient.fetchArticles(page: currentPage, perPage: 10)
+                .sink(receiveCompletion: { fail in
+                    switch fail {
+                    case .failure(let e):
+                        print(e.localizedDescription)
+                    case .finished:
+                        print("prev() finished")
+                    }
+                }) { articles in
+                    self.articles = articles
+                }.store(in: &cancellables)
+        }
+        else
+        {
+            print("currentPage < 2")
+        }
+    }
 }
