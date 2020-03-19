@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E81A8CB2423BB0B00DA490F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2E81A8CA2423BB0B00DA490F /* URLImage */; };
 		BF5401EF22A9717500C4A00F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5401EE22A9717500C4A00F /* AppDelegate.swift */; };
 		BF5401F122A9717500C4A00F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5401F022A9717500C4A00F /* SceneDelegate.swift */; };
 		BF5401F522A9717800C4A00F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF5401F422A9717800C4A00F /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E81A8CB2423BB0B00DA490F /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +151,9 @@
 			dependencies = (
 			);
 			name = SwiftUIQiitaClient;
+			packageProductDependencies = (
+				2E81A8CA2423BB0B00DA490F /* URLImage */,
+			);
 			productName = SwiftUIQiitaClient;
 			productReference = BF5401EB22A9717500C4A00F /* SwiftUIQiitaClient.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +182,9 @@
 				Base,
 			);
 			mainGroup = BF5401E222A9717500C4A00F;
+			packageReferences = (
+				2E81A8C92423BB0B00DA490F /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = BF5401EC22A9717500C4A00F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -406,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2E81A8C92423BB0B00DA490F /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.12;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2E81A8CA2423BB0B00DA490F /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E81A8C92423BB0B00DA490F /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF5401E322A9717500C4A00F /* Project object */;
 }

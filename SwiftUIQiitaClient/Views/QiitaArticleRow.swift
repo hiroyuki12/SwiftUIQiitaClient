@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct QiitaArticleRow : View {
     @ObservedObject var viewModel: QiitaArticleListViewModel
@@ -14,47 +15,59 @@ struct QiitaArticleRow : View {
     let article: QiitaData.Article
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack { 
-//                Image(systemName: "book")
-//                    .imageScale(.medium)
-//                    .foregroundColor(Color.green)
-                Text(article.title)
-//                    .bold()
-                    .fontWeight(Font.Weight.light)
-                    .lineLimit(3)
-            }
-//            .layoutPriority(1)
-            
+        HStack {
             HStack {
-//                Image(systemName: "heart.fill")
-//                    .imageScale(.small)
-//                    .foregroundColor(Color.red)
-//                Text(("\(article.reactionsCount)"))
-//                    .font(.subheadline)
-//                Spacer()
-                Text("\(article.createdAt)")
-                    .font(.caption)
-                    .foregroundColor(.yellow)
-                    .fontWeight(Font.Weight.light)
-                
-                Text("by @\(article.user.id)")
-                    .font(.caption)
-                    .foregroundColor(.yellow)
-                    .fontWeight(Font.Weight.light)
+                URLImage(article.user.profileImageUrl!,
+                    delay: 0.25,
+                    content:  {
+                        $0.image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                    })
+                    .frame(width: 70.0, height: 70.0)
             }
-      
-            HStack {
-                Text("\(article.likesCount)")
-                    .font(.caption)
-                    .foregroundColor(.yellow)
-                    .fontWeight(Font.Weight.light)
-                
-                Text("likes")
-                    .font(.caption)
-                    .foregroundColor(.yellow)
-                    .fontWeight(Font.Weight.light)
+            VStack() {
+                    
+                HStack {
+                    Text(article.title)
+                        .font(.body)
+    //                    .bold()
+                        .fontWeight(Font.Weight.light)
+                        .lineLimit(3)
+    //            .layoutPriority(1)
+                    
+                    Spacer()
                 }
+                
+                HStack {
+                    Text("\(article.createdAt)")
+                        .font(.caption)
+                        .foregroundColor(.yellow)
+                        .fontWeight(Font.Weight.light)
+                    
+                    Text("by @\(article.user.id)")
+                        .font(.caption)
+                        .foregroundColor(.yellow)
+                        .fontWeight(Font.Weight.light)
+                    
+                    Spacer()
+                }
+          
+                HStack {
+                    Text("\(article.likesCount)")
+                        .font(.caption)
+                        .foregroundColor(.yellow)
+                        .fontWeight(Font.Weight.light)
+                    
+                    Text("likes")
+                        .font(.caption)
+                        .foregroundColor(.yellow)
+                        .fontWeight(Font.Weight.light)
+                    
+                    Spacer()
+                }
+            }
         }
     }
 }
