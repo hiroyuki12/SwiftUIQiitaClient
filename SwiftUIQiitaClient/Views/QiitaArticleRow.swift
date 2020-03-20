@@ -32,10 +32,8 @@ struct QiitaArticleRow : View {
                 HStack {
                     Text(article.title)
                         .font(.body)
-    //                    .bold()
                         .fontWeight(Font.Weight.light)
                         .lineLimit(3)
-    //            .layoutPriority(1)
                     
                     Spacer()
                 }
@@ -61,6 +59,26 @@ struct QiitaArticleRow : View {
                         .fontWeight(Font.Weight.light)
                     
                     Text("likes")
+                        .font(.caption)
+                        .foregroundColor(.yellow)
+                        .fontWeight(Font.Weight.light)
+                    
+                    Text("\(article.tags[0].name)")
+                        .font(.caption)
+                        .foregroundColor(.yellow)
+                        .fontWeight(Font.Weight.light)
+                    
+                    Text(article.tags.count >= 2 ? "\(article.tags[1].name)" : "" )
+                        .font(.caption)
+                        .foregroundColor(.yellow)
+                        .fontWeight(Font.Weight.light)
+                        
+                    Text(article.tags.count >= 3 ? "\(article.tags[2].name)" : "" )
+                        .font(.caption)
+                        .foregroundColor(.yellow)
+                        .fontWeight(Font.Weight.light)
+                            
+                    Text(article.tags.count >= 4 ? "\(article.tags[3].name)" : "" )
                         .font(.caption)
                         .foregroundColor(.yellow)
                         .fontWeight(Font.Weight.light)
