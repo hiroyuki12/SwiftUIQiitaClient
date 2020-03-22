@@ -24,3 +24,8 @@ SwiftyJSON
 Xcodeで、File-Swift Packages-Add Package Dependency...
 リポジトリにURLを入力
 https://github.com/SwiftyJSON/SwiftyJSON
+
+Alamofire
+Xcodeで、File-Swift Packages-Add Package Dependency...
+リポジトリにURLを入力
+https://github.com/Alamofire/Alamofire
