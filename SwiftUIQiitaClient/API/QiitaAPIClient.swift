@@ -22,10 +22,25 @@ final class QiitaAPIClient {
     /// - Returns:
     ///     検索結果Publisher
     static func fetchArticles(page: Int = 1, perPage: Int = 20, tag: String) -> AnyPublisher<[QiitaData.Article], Error> {
+        var articles: [[String: String?]] = []
+        
         //Alamofire Test
-        AF.request("https://qiita.com/api/v2/tags/\(tag)/items?page=1&per_page=10").response { response in
-            debugPrint(response)
+        AF.request("https://qiita.com/api/v2/tags/\(tag)/items?page=\(page)&per_page=\(perPage)").responseJSON { response in
+            let object = response.data
+            let json = JSON(object)
+            var article: [String: String?] = [:]
+            json.forEach { (_, json) in
+                article = [
+                    "title": json["title"].string,
+                    "user": json["user"]["id"].string,
+                    "profile_image_url": json["user"]["profile_image_url"].string,
+                    "url": json["url"].string,
+                ]
+                articles.append(article)
+            }
+            debugPrint(articles)
         }
+        //Alamofire Test
         
         var components = URLComponents(string: "https://qiita.com/api/v2/tags/\(tag)/items")!
         components.queryItems = [
