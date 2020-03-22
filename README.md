@@ -19,3 +19,8 @@ https://github.com/dmytro-anokhin/url-image#using-image-processors-and-core-imag
 
 navigationBarItems(leading:trailing:)  leadingもtrailingも使う場合は、引数に両方入れる。leadingが先でないとNG
 https://developer.apple.com/documentation/swiftui/view/3340829-navigationbaritems
+
+SwiftyJSON
+Xcodeで、File-Swift Packages-Add Package Dependency...
+リポジトリにURLを入力
+https://github.com/SwiftyJSON/SwiftyJSON
