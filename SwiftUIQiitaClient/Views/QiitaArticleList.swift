@@ -21,7 +21,9 @@ struct QiitaArticleList : View {
                         .environmentObject(self.viewModel)
                 }
             }
-            .navigationBarTitle(Text("\"Swift\"の新着記事一覧"))
+                //\(self.viewModel.title)
+            .navigationBarTitle(Text("Swift/SwiftUIの新着"))
+            //.navigationBarTitle(Text("\"\(self.viewModel.title)\"の新着記事一覧"))
             .navigationBarItems(leading: Button(action: {
                 // クリックした時のアクション
                 self.viewModel.prev()
@@ -33,8 +35,14 @@ struct QiitaArticleList : View {
                 ActionSheet(
                     title: Text("Title"),
 //                    message: Text("Message"),
-                    buttons: [.default(Text("Next Page"), action: {
-                        self.viewModel.next(pageCount:1)
+                    buttons: [.default(Text("SwiftUI"), action: {
+                        self.viewModel.switchSwiftUI()
+                        }),
+                        .default(Text("Swift"), action: {
+                            self.viewModel.switchSwift()
+                        }),
+                        .default(Text("Next Page"), action: {
+                            self.viewModel.next(pageCount:1)
                         }),
                         .default(Text("Prev Page"), action: {
                             self.viewModel.prev(pageCount:1)
@@ -45,11 +53,14 @@ struct QiitaArticleList : View {
                         .default(Text("Prev 5Page"), action: {
                             self.viewModel.prev(pageCount:5)
                         }),
-                        .default(Text("Swift page1/10posts"), action: {
+                        .default(Text("page1/20posts"), action: {
                             self.viewModel.home()
                         }),
+                        .default(Text("SwiftUI page15/20posts"), action: {
+                            self.viewModel.pageMaxSwiftUI()
+                        }),
                         .default(Text("Swift page100/20posts"), action: {
-                            self.viewModel.pageMax()
+                            self.viewModel.pageMaxSwift()
                         }),
                         .cancel()]
                 )

@@ -19,9 +19,9 @@ final class QiitaAPIClient {
     ///     - perPage: 1ページごとの記事数, default=20
     /// - Returns:
     ///     検索結果Publisher
-    static func fetchArticles(page: Int = 1, perPage: Int = 20) -> AnyPublisher<[QiitaData.Article], Error> {
+    static func fetchArticles(page: Int = 1, perPage: Int = 20, tag: String) -> AnyPublisher<[QiitaData.Article], Error> {
         
-        var components = URLComponents(string: "https://qiita.com/api/v2/tags/swift/items")!
+        var components = URLComponents(string: "https://qiita.com/api/v2/tags/\(tag)/items")!
         components.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "perPage", value: "\(perPage)"),
