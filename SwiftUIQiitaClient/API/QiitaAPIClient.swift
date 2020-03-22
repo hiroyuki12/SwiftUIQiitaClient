@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 import SwiftyJSON
+import Alamofire
 
 final class QiitaAPIClient {
     
@@ -21,6 +22,10 @@ final class QiitaAPIClient {
     /// - Returns:
     ///     検索結果Publisher
     static func fetchArticles(page: Int = 1, perPage: Int = 20, tag: String) -> AnyPublisher<[QiitaData.Article], Error> {
+        //Alamofire Test
+        AF.request("https://qiita.com/api/v2/tags/\(tag)/items?page=1&per_page=10").response { response in
+            debugPrint(response)
+        }
         
         var components = URLComponents(string: "https://qiita.com/api/v2/tags/\(tag)/items")!
         components.queryItems = [
