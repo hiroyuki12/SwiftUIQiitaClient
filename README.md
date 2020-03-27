@@ -29,3 +29,6 @@ Alamofire
 Xcodeで、File-Swift Packages-Add Package Dependency...
 リポジトリにURLを入力
 https://github.com/Alamofire/Alamofire
+
+画面を縦に固定する
+https://pippi-pro.com/swift-prevent-rotation
